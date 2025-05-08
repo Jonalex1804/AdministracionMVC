@@ -44,3 +44,13 @@ python main.py
 usuario: admin
 contraseña: admin123
 ```
+
+### LINK GITHUB
+https://github.com/Jonalex1804/AdministracionMVC.git
+
+### LINK VIDEO
+https://udlaec.sharepoint.com/sites/ubicua852/_layouts/15/stream.aspx?id=%2Fsites%2Fubicua852%2FShared%20Documents%2FGeneral%2FRecordings%2FReuni%C3%B3n%20en%20%5FGeneral%5F%2D20250507%5F224447%2DGrabaci%C3%B3n%20de%20la%20reuni%C3%B3n%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E98955347%2Dfd50%2D4e20%2Dab50%2D5e4df18fb0a1
+
+
+### LINK DEPLOY
+https://administracionmvc.onrender.com
