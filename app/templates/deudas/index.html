@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Deudas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Listado de Personas con Deuda</h2>
+    <a href="{{ url_for('debt.crear') }}" class="btn btn-success mb-3">Registrar nueva deuda</a>
+    <a href="{{ url_for('auth.logout') }}" class="btn btn-secondary mb-3 float-end">Cerrar sesión</a>
+    
+    <div class="row mb-3">
+        <div class="col">
+            <div class="alert alert-success">Cumplidos: {{ resumen['cumplido'] }}</div>
+        </div>
+        <div class="col">
+            <div class="alert alert-danger">Morosos: {{ resumen['moroso'] }}</div>
+        </div>
+        <div class="col">
+            <div class="alert alert-warning">Pendientes: {{ resumen['pendiente'] }}</div>
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col">
+            <div class="alert alert-danger">🔴 Riesgo alto de mora: {{ prediccion['alta'] }}</div>
+        </div>
+        <div class="col">
+            <div class="alert alert-warning">🟠 Riesgo medio: {{ prediccion['media'] }}</div>
+        </div>
+        <div class="col">
+            <div class="alert alert-info">🟡 Riesgo bajo: {{ prediccion['baja'] }}</div>
+        </div>
+    </div>
+    
+    <table class="table table-bordered">
+    
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Monto Total</th>
+                <th>Abonado</th>
+                <th>Fecha Límite</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for deuda in deudas %}
+            <tr>
+                <td>{{ deuda.name }}</td>
+                <td>${{ "%.2f"|format(deuda.amount) }}</td>
+                <td>${{ "%.2f"|format(deuda.abono) }}</td>
+                <td>{{ deuda.due_date or "No definida" }}</td>
+                <td>{{ deuda.estado|capitalize }}</td>
+                <td>
+                    <a href="{{ url_for('debt.editar', id=deuda.id) }}" class="btn btn-warning btn-sm">Editar</a>
+                    <a href="{{ url_for('debt.eliminar', id=deuda.id) }}" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+            {% else %}
+            <tr><td colspan="6">No hay deudas registradas.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
