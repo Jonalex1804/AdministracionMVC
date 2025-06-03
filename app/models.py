@@ -16,8 +16,11 @@ class PersonDebt(db.Model):
 
     @property
     def estado(self):
+<<<<<<< HEAD
         if self.abono == 0:
             return 'incumplido'
+=======
+>>>>>>> d97651a80dbbcd304d728757b633b57fcea39c18
         if self.abono >= self.amount:
             return 'cumplido'
         elif self.due_date and date.today() > self.due_date:

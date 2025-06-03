@@ -14,9 +14,13 @@ def index():
     resumen = {
         'cumplido': 0,
         'moroso': 0,
+<<<<<<< HEAD
         'pendiente': 0,
         'incumplido': 0
         
+=======
+        'pendiente': 0
+>>>>>>> d97651a80dbbcd304d728757b633b57fcea39c18
     }
     for d in deudas:
         resumen[d.estado] += 1
@@ -30,8 +34,12 @@ def index():
         if d.estado == 'pendiente' and d.due_date:
             dias_restantes = (d.due_date - date.today()).days
             porcentaje_pagado = d.abono / d.amount if d.amount else 0
+<<<<<<< HEAD
             
             
+=======
+
+>>>>>>> d97651a80dbbcd304d728757b633b57fcea39c18
             if porcentaje_pagado < 0.5 and dias_restantes <= 10:
                 probabilidad_alta += 1
             elif porcentaje_pagado < 0.75 and dias_restantes <= 15:
